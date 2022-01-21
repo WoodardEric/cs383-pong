@@ -8,7 +8,7 @@ public class PlayerControl : MonoBehaviour
     public float boundY;
     public bool AI = false;
 
-    private GameObject ball;
+    public  GameObject ball;
     private Rigidbody2D rb2d;
     private Vector3 originalScale;
 
@@ -17,7 +17,6 @@ public class PlayerControl : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         float temp = transform.localScale.y / 2;
         boundY = (float)(Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0)).y - temp);
-        ball = GameObject.FindGameObjectWithTag("Ball");
         originalScale = transform.localScale;
     }
 

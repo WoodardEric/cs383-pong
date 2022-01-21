@@ -5,16 +5,14 @@ public class GameManager : MonoBehaviour
     public static int PlayerOneScore = 0;
     public static int PlayerTwoScore = 0;
 
-    public GameObject helpScreen;
+    public Canvas helpScreen;
     public GUISkin layout;
 
-    GameObject ball;
+    public GameObject ball;
 
     void Start()
     {
         Time.timeScale = 0;
-        ball = GameObject.FindGameObjectWithTag("Ball");
-        helpScreen = GameObject.FindGameObjectWithTag("HelpScreen");
     }
 
     public static void Score(string wallID)
@@ -62,16 +60,16 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!helpScreen.activeSelf)
+            if (!helpScreen.gameObject.activeSelf)
             {
                 Time.timeScale = 0;
-                helpScreen.SetActive(true);
+                helpScreen.gameObject.SetActive(true);
             }
             else
             {
 
                 Time.timeScale = 1;
-                helpScreen.SetActive(false);
+                helpScreen.gameObject.SetActive(false);
             }
         }
     }
