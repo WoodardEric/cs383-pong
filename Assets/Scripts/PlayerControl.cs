@@ -85,11 +85,11 @@ public class PlayerControl : MonoBehaviour
             var velocity = rb2d.velocity;
             if (Input.GetKey(upKey))
             {
-                velocity.y = speed;
+                velocity.y = Input.GetAxis("Vertical") + speed;
             }
             else if (Input.GetKey(downKey))
             {
-                velocity.y = -speed;
+                velocity.y = Input.GetAxis("Vertical") - speed;
             }
             else
             {
