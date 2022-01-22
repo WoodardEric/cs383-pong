@@ -41,7 +41,10 @@ public class PlayerControl : MonoBehaviour
         {
             var scaleChangeY = 0.08f;
             var size = transform.localScale;
-            size.y -= scaleChangeY;
+            if (size.y > 0.2f)
+            { 
+                size.y -= scaleChangeY;
+            }
             transform.localScale = size;
             boundY += scaleChangeY;
         }
