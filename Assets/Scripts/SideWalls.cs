@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class SideWalls : MonoBehaviour
 {
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    public BallControl ball;
+
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (hitInfo.name == "Ball")
+        if (collision.name == "Ball")
         {
-            string wallName = transform.name;
+            string wallName = gameObject.name;
             GameManager.Score(wallName);
-            hitInfo.gameObject.SendMessage("RestartGame", 1.0f, SendMessageOptions.RequireReceiver);
+            ball.RestartGame();
         }
     }
 }

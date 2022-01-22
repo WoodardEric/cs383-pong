@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private const int MAX_SCORE = 10;
+
     public static int PlayerOneScore = 0;
     public static int PlayerTwoScore = 0;
-    private const int MAX_SCORE = 3;
+
     public Canvas helpScreen;
-    public GUISkin layout;
+    public GUISkin guiSkin;
 
     public GameObject ball;
     public AudioSource audioSource;
@@ -36,13 +38,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ToggleMute()
+    {
+        audioSource.mute = !audioSource.mute;
+        if (audioSource.mute)
+        {
+            audioSource.Pause();
+        }
+        else
+        {
+            audioSource.Play();
+        }
+    }
+
     void OnGUI()
     {
-        GUI.skin = layout;
+        GUI.skin = guiSkin;
         GUI.Label(new Rect(Screen.width / 2 - 150 - 12, 20, 100, 100), "" + PlayerOneScore);
         GUI.Label(new Rect(Screen.width / 2 + 150 + 12, 20, 100, 100), "" + PlayerTwoScore);
 
-        var messageRect = new Rect(Screen.width / 2 - 250, Screen.height - 100, 2000, 1000);
+        // creadte a rect at the bottom center of the screen.
+        var messageRect = new Rect(Screen.width / 2 - 250, Screen.height - 100, 1000, 500);
+
         bool win = false;
         if (PlayerOneScore >= MAX_SCORE)
         {
@@ -78,7 +95,7 @@ public class GameManager : MonoBehaviour
         }
 
         // pan the music to follow the ball
-        audioSource.panStereo = Mathf.Clamp(ball.transform.position.x / 4, - 0.5f, 0.5f);
+        audioSource.panStereo = Mathf.Clamp(ball.transform.position.x / 6, - 0.5f, 0.5f);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
