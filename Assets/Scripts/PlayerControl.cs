@@ -16,7 +16,9 @@ public class PlayerControl : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         float temp = transform.localScale.y / 2;
-        boundY = (float)(Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0)).y - temp);
+
+        // bind the baddle to within the camera
+        boundY = (float)(Camera.main.ViewportToWorldPoint(new Vector3(1, 1, 0)).y - temp); 
         originalScale = transform.localScale;
     }
 
@@ -37,7 +39,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (coll.collider.CompareTag("Ball"))
         {
-            var scaleChangeY = 0.05f;
+            var scaleChangeY = 0.08f;
             var size = transform.localScale;
             size.y -= scaleChangeY;
             transform.localScale = size;
@@ -68,9 +70,22 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            var pos = transform.position;
-            pos.y = ball.transform.position.y;
-            transform.position = pos;
+            var velocity = rb2d.velocity;
+            var paddlePosition = transform.position;
+            var ballPosition = ball.transform.position;
+            if (ballPosition.y > paddlePosition.y + 0.3)
+            {
+                velocity.y = speed;
+            }
+            else if (ballPosition.y < paddlePosition.y - 0.3)
+            {
+                velocity.y = -speed;
+            }
+            else
+            {
+                velocity.y = 0;
+            }
+            rb2d.velocity = velocity;
         }
 
         var position = transform.position;

@@ -276,6 +276,7 @@ MonoBehaviour:
   speed: 10
   boundY: 0
   AI: 0
+  ball: {fileID: 1118998249}
 --- !u!50 &350914599
 Rigidbody2D:
   serializedVersion: 4
@@ -382,7 +383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350914597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3, y: 0, z: 0}
+  m_LocalPosition: {x: -5, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -425,6 +426,7 @@ MonoBehaviour:
   speed: 10
   boundY: 0
   AI: 0
+  ball: {fileID: 1118998249}
 --- !u!50 &364697524
 Rigidbody2D:
   serializedVersion: 4
@@ -531,7 +533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364697522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.4, y: 0, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -715,8 +717,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58, y: 53}
-  m_SizeDelta: {x: 250, y: 30}
+  m_AnchoredPosition: {x: -34, y: 41}
+  m_SizeDelta: {x: 280, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625220563
 MonoBehaviour:
@@ -745,18 +747,21 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'W and D move the blue paddle
+  m_Text: 'W and D move the blue paddle and the up and down arrows move the red paddle
 
-    and the up and down arrows move the
-    red paddle.
+    .
 
-    First to 10 points win.'
+    Score
+    by getting the ball to hit the wall behind th opposing paddle.
+
+    First to
+    10 points win.'
 --- !u!222 &625220564
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -824,7 +829,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 12
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -873,8 +878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 608ce360f46f29f4d87b6f4bad3e0ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpScreen: {fileID: 0}
+  helpScreen: {fileID: 1830072975}
   layout: {fileID: 11400000, guid: f8a377c0be642ba4b9cae68b136f7796, type: 2}
+  ball: {fileID: 1118998249}
 --- !u!4 &953017538
 Transform:
   m_ObjectHideFlags: 0
@@ -1317,8 +1323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9, y: -0.5}
-  m_SizeDelta: {x: -28, y: -3}
+  m_AnchoredPosition: {x: 8.5, y: -0.5}
+  m_SizeDelta: {x: -29, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1428297940
 MonoBehaviour:
@@ -1351,9 +1357,11 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Red AI
+  m_Text: 'Red Human Controlled
+
+'
 --- !u!222 &1428297941
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1488,7 +1496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.91353464, g: 1, b: 0.29622638, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1548,8 +1556,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -102, y: -37}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: -83.7, y: -37}
+  m_SizeDelta: {x: 175, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802363252
 MonoBehaviour:
@@ -1688,7 +1696,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -279395087
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1830072976
