@@ -274,7 +274,7 @@ MonoBehaviour:
   upKey: 119
   downKey: 115
   speed: 10
-  boundY: 0
+  yBoundry: 0
   AI: 0
   ball: {fileID: 1118998254}
 --- !u!50 &350914599
@@ -588,7 +588,7 @@ MonoBehaviour:
   upKey: 273
   downKey: 274
   speed: 10
-  boundY: 0
+  yBoundry: 0
   AI: 1
   ball: {fileID: 1118998254}
 --- !u!50 &364697524
@@ -856,6 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2226cc87f17dc5744ae5650ade8f7054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 1118998254}
 --- !u!1 &625220561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,8 +1053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helpScreen: {fileID: 1830072975}
-  layout: {fileID: 11400000, guid: f8a377c0be642ba4b9cae68b136f7796, type: 2}
-  ball: {fileID: 1118998249}
+  guiSkin: {fileID: 11400000, guid: f8a377c0be642ba4b9cae68b136f7796, type: 2}
+  ball: {fileID: 1118998254}
   audioSource: {fileID: 351988344}
 --- !u!4 &953017538
 Transform:
@@ -1205,6 +1206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2226cc87f17dc5744ae5650ade8f7054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: {fileID: 1118998254}
 --- !u!1 &1118998249
 GameObject:
   m_ObjectHideFlags: 0

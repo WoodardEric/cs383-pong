@@ -9,8 +9,7 @@ public class GameManager : MonoBehaviour
 
     public Canvas helpScreen;
     public GUISkin guiSkin;
-
-    public GameObject ball;
+    public BallControl ball;
     public AudioSource audioSource;
 
     private bool restarting = false;
@@ -74,6 +73,7 @@ public class GameManager : MonoBehaviour
 
         if (win && !restarting)
         {
+            ball.gameObject.SetActive(false);
             Invoke("ResetMatch", 5);
             restarting = true;
         }
@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerOneScore = 0;
         PlayerTwoScore = 0;
+        ball.gameObject.SetActive(true);
         ball.SendMessage("RestartGame", null, SendMessageOptions.RequireReceiver);
         restarting = false;
     }
@@ -107,7 +108,6 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-
                 Time.timeScale = 1;
                 helpScreen.gameObject.SetActive(false);
                 audioSource.bypassEffects = true;

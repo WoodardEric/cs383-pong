@@ -3,17 +3,19 @@ using UnityEngine;
 public class BallControl : MonoBehaviour
 {
     public Rigidbody2D RB2D { get; private set; }
+
     public Vector2 Velocity
     {
         get { return RB2D.velocity; }
         set { RB2D.velocity = value; }
     }
+
     private void StartBall()
     {
         RB2D.AddForce(new Vector2(40, -15));
     }
 
-    void ResetBall()
+    public void ResetBall()
     {
         Velocity = Vector2.zero;
         transform.position = Vector2.zero;
@@ -41,6 +43,6 @@ public class BallControl : MonoBehaviour
     void Start()
     {
         RB2D = GetComponent<Rigidbody2D>();
-        Invoke("StartBall", 1);
+        RestartGame();
     }
 }
