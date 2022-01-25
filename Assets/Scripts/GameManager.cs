@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,10 +14,12 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
 
     private bool restarting = false;
+    private List<string> tracks =  new List<string> { "track1", "track2" };
 
     void Start()
     {
         Time.timeScale = 0;
+        audioSource.Play();
     }
 
     public static void Score(string wallID)
@@ -46,8 +49,20 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            audioSource.Play();
+            audioSource.UnPause();
         }
+    }
+
+    private void nextTrack()
+    {
+        audioSource.Stop();
+        int index = tracks.IndexOf(audioSource.clip.name);
+        index++;
+        if (index >= tracks.Count)
+            index = 0;
+
+        audioSource.clip = Resources.Load(tracks[index], typeof(AudioClip)) as AudioClip;
+        audioSource.Play();
     }
 
     void OnGUI()
@@ -112,6 +127,11 @@ public class GameManager : MonoBehaviour
                 helpScreen.gameObject.SetActive(false);
                 audioSource.bypassEffects = true;
             }
+        }
+
+        if (!audioSource.isPlaying && !audioSource.mute && Application.isFocused)
+        {
+            nextTrack();
         }
     }
 }
