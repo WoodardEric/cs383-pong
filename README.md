@@ -4,7 +4,8 @@
 - Doubleclick the pong.exe file and it will run
 - Use the S and W keys to move the blue or the Up and Down arros to mover the red paddle.
 - Uncheck the Red Human Control box to play against AI
-- First to 10 points wins the game. Press escape to exit the game at any point.
+- First to 10 points wins the game.Game will restart after a few seconds.
+- Press escape to exit the game at any point.
 
 ## Compiling
 If you don't have unity installed complete the installing unity section then come back to these steps.
